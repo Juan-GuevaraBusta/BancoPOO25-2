@@ -72,7 +72,7 @@ Cuenta* Banco::agregarCuenta(string Titular, string Telefono, string NumeroCuent
 }
 
 //Declaramos el metodo buscarPorNombre y le entregamos el parametro nombre
-Cuenta *Banco::buscarPorNombre(std::string nombre) {
+Cuenta* Banco::buscarPorNombre(std::string nombre) {
     //Creamos un ciclo for para recorrer el vector de cuentas
     for (auto i = cuentas.begin(); i != cuentas.end(); i++) {
         // Verificamos que el parametro nombre sea igual a el nombre de alguna de las clases
@@ -92,7 +92,7 @@ Cuenta *Banco::buscarPorNombre(std::string nombre) {
     }
 }
 
-Cuenta *Banco::buscarPorCuenta(std::string NumeroCuenta) {
+Cuenta* Banco::buscarPorCuenta(std::string NumeroCuenta) {
     for (auto i = cuentas.begin(); i != cuentas.end(); i++) {
         if (NumeroCuenta == (*i)->getNumeroCuenta()) {
             //Mostramos la información de la cuenta
@@ -108,6 +108,80 @@ Cuenta *Banco::buscarPorCuenta(std::string NumeroCuenta) {
 
 
         }
+    }
+}
+//implementación de existe cuenta
+bool Banco::existeCuenta(std::string NumeroCuenta) {
+    //se itera por elemento dentro del contenedor
+    for (Cuenta* account: cuentas) {
+        //se condiciona la coincidencia del numero de la cuenta
+        if (account->getNumeroCuenta() == NumeroCuenta) {
+            //en caso positivo devuelve true
+            return true;
+        } else {
+            //en caso negativo devuelve false
+            return false;
+        }
+    }
+}
+//implementación de modificar la información de la cuenta
+Cuenta *Banco::modificarInfoCuenta() {
+    //Se generan las variables para usar dentro del switch y usar los setters y getters para
+    int opc;
+    string newHolder;
+    string newPhone;
+    string newAccount;
+    string numeroCuenta;
+    cout << "Selecciona opcion:" << endl;
+    cout << "1. Cambiar titular" << endl;
+    cout << "2. Cambiar numero de telefono" << endl;
+    cout << "3. Cambiar numero de cuenta" << endl;
+    cin >> opc;
+    switch (opc) {
+        case 1:
+            cout << "Introduzca el numero de cuenta al cual quiere cambiar el titular ";
+            cin >> numeroCuenta;
+            //Se hace un for con un interador i para buscar el numero de cuenta y poder cambiarle el nombre al titular
+            for (auto i = cuentas.begin(); i != cuentas.end(); i++) {
+                if (numeroCuenta == (*i)->getNumeroCuenta()) {
+                    cout << "Titular: "<<(*i)->getTitular()<<endl;
+                    cout << "Introduzca el nombre del nuevo titular" << endl;
+                    cin >> newHolder;
+                    (*i)->setTitular(newHolder);
+                    cout << "Nuevo nombre de Titular: "<<(*i)->getTitular()<<endl;
+                }
+            }
+            
+        case 2:
+            cout << "Introduzca el numero de cuenta al cual quiere cambiar el telefono ";
+            cin >> numeroCuenta;
+            //Se hace un for con un interador i para buscar el numero de cuenta y poder cambiarle el nombre al titular
+            for (auto i = cuentas.begin(); i != cuentas.end(); i++) {
+                if (numeroCuenta == (*i)->getNumeroCuenta()) {
+                    cout << "Titular: "<<(*i)->getTitular()<<endl;
+                    cout << "Telefono: " <<(*i)->getTelefono()<<endl;
+                    cout << "Introduzca el nuevo numero de telefono" << endl;
+                    cin >> newPhone;
+                    (*i)->setTelefono(newPhone);
+                    cout << "Nuevo numero de telefono: "<<(*i)->getTelefono()<<endl;
+
+                }
+            }
+
+        case 3:cout << "Introduzca el numero de cuenta al cual quiere cambiar el telefono ";
+            cin >> numeroCuenta;
+            for (auto i = cuentas.begin(); i != cuentas.end(); i++) {
+                if (numeroCuenta == (*i)->getNumeroCuenta()) {
+                    cout << "Titular: "<<(*i)->getTitular()<<endl;
+                    cout << "Numero de cuenta: " <<(*i)->getNumeroCuenta()<<endl;
+                    cout << "Ahora se procederá a generar un nuevo numero de cuenta" << endl;
+                    newAccount = generarNumeroCuenta();
+                    (*i)->setNumeroCuenta(newAccount);
+                    cout << "Su nuevo numero de cuenta es: " << (*i) ->getNumeroCuenta()<<endl;
+                }
+            }
+
+
     }
 }
 

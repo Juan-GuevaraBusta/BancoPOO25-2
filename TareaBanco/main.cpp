@@ -1,7 +1,5 @@
-
-
-#include "banco.h"
-#include "cuenta.h"
+#include "Banco.h"
+#include "Cuenta.h"
 #include <iostream>
 #include <string>
 
@@ -27,45 +25,45 @@ void limpiarBuffer() {
 }
 
 int main() {
-    //Banco banco;
+    Banco banco;
     int opcion1;
     int opcion2;
 
     mostrarMenu1();
-    std::cin >> opcion1;
+    std::cin >> opcion1
 
     switch (opcion1) {
-    case 1:
-        do {
-            mostrarMenu2();
-            std::cin >> opcion2;
-            limpiarBuffer();
+        case 1:
+            do {
+                mostrarMenu2();
+                std::cin >> opcion2;
+                limpiarBuffer();
 
-            switch (opcion2) {
-            case 1:
-                // Opcion 1: Agregar cuenta
+                switch (opcion2) {
+                    case 1:
+                        // Opcion 1: Agregar cuenta
+                            break;
+                    case 2:
+                        // Opcion 2: Buscar cuenta por nombre
+                            break;
+                    case 3:
+                        // Opcion 3: Buscar cuenta por numero
+                            break;
+                    case 4:
+                        std::cout << "Gracias por usar el sistema bancario.\n";
                     break;
-            case 2:
-                // Opcion 2: Listar cuentas existentes
+                    default:
+                        std::cout << "Opcion no valida.\n";
                     break;
-            case 3:
-                // Opcion 3: Buscar cuenta
-                    break;
-            case 4:
-                std::cout << "Gracias por usar el sistema bancario.\n";
-                break;
-            default:
-                std::cout << "Opcion no valida.\n";
-                break;
-            }
-        } while (opcion2 != 4);
+                }
+            } while (opcion2 != 4);
 
-    case 2:
-        std::cout << "Saliendo...";
+        case 2:
+            std::cout << "Saliendo...";
         break;
 
-    default:
-        std::cout << "Opcion no valida.\n";
+        default:
+            std::cout << "Opcion no valida.\n";
     }
 
 

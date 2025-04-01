@@ -1,0 +1,3 @@
+C:/Users/ADRIANA/Desktop/universidad/Ing. Sistemas/2/POO/TareaBanco/cmake-build-debug/CMakeFiles/TareaBanco.dir
+C:/Users/ADRIANA/Desktop/universidad/Ing. Sistemas/2/POO/TareaBanco/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ADRIANA/Desktop/universidad/Ing. Sistemas/2/POO/TareaBanco/cmake-build-debug/CMakeFiles/rebuild_cache.dir

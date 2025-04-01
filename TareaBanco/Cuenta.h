@@ -20,10 +20,11 @@ public:
     string getTelefono();
     string getNumeroCuenta();
     float getSaldo();
-    string setTitular();
-    string setTelefono();
-    string setNumeroCuenta();
-    float setSaldo();
+    void setTitular(string titular);
+    void setTelefono(string telefono);
+    void setNumeroCuenta(string numeroCuenta);
+    void setSaldo(float Saldo);
+    string generarNumeroCuenta();
     Cuenta();
     ~Cuenta();
 
